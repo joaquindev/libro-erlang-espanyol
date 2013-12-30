@@ -1,3 +1,16 @@
+# Manual instructivo de Erlang
+
+Este repositorio es una traducción al Castellano del libro disponible en el repositiorio: 
+
+[https://github.com/esl/erlang-handbook][repositorio-original]
+
+El objetivo de esta traducción es doble: 
+
+1. Aprender el lenguaje de programación Erlang
+2. Traducir el libro original al Castellan
+
+[repositorio-original]: https://github.com/esl/erlang-handbook
+
 # Erlang Handbook
 
 Originally written by Bjarne Däcker and later revised by Robert Virding, the Erlang Handbook is a summary of the language features and the runtime system. It is aimed at people with some programming experience, serving as a quick introduction to the Erlang domain.
