@@ -21,27 +21,17 @@ y es local al m\'odulo y de la funci\'on \texttt{double/1} que se exporta
 y que puede ser llamada desde fuera del m\'odulo.
 
 \texttt{demo:double(10)} \resultingin \texttt{20}\hfill
-(la flecha $\Rightarrow$ se lee como ``da como resultado'')
+(la flecha $\Rightarrow$ se lee como ``da como resultado'') \texttt{double/1} significa la funci\'on ``double'' con \textit{one}(un)
+argumento. Una funci\'on \texttt{double/2} que recibe \textit{two}(dos) argumentos se considera una funci\'on diferente. El n\'umero de argumentos se llama la \textbf{aridad} de la funci\'on.
 
-\texttt{double/1} significa la funci\'on ``double'' con \textit{one}(un)
-argumento. Una funci\'on \texttt{double/2} que recibe \textit{two}(dos) argumentos
-se considera una funci\'on diferente. El n\'umero de argumentos se llama la 
-\textbf{aridad} de la funci\'on.
+\section{Atributos de m\'odulo}
+Un \textbf{atributo de un m\'odulo} define una propiedad concreta de un m\'odulo y consiste en una \textbf{etiqueta}(tag) y un \textbf{valor}(value):
+\texttt{-Tag(valor).} 
 
-\section{Module attributes}
-A \textbf{module attribute} defines a certain property of a module and
-consists of a \textbf{tag} and a \textbf{value}:
+\texttt{Tag} tiene que se un \'atomo, mientras que \texttt{valor} tiene que ser un t\'ermino literal (consulta el cap\'itulo \ref{datatypes}). Cualquier atributo de un m\'odulo puede ser especificado. Los atributos se guardan en el c\'odigo compilado y puede ser recuperado llamando a la funci\'on \texttt{Module:module\_info(attributes).}
 
-\texttt{-Tag(Value).}
-
-\texttt{Tag} must be an atom, while \texttt{Value} must be a literal
-term (see chapter \ref{datatypes}). Any module attribute can be specified. The
-attributes are stored in the compiled code and can be retrieved by
-calling the function \texttt{Module:module\_info(attributes).}
-
-\subsection{Pre-defined module attributes}
-Pre-defined module attributes must be placed before any function
-declaration.
+\subsection{Atributos de m\'odulo predefinidos}
+Los atributos de m\'odulo predefinodos tienen que ponerse antes de cualquier declaraci\'on de funci\'on.
 
 \begin{itemize}
 
@@ -94,19 +84,16 @@ declaration.
 \end{itemize}
 
 
-\subsection{Macro and record definitions}
+\subsection{Macros y definici\'on de grabaciones}
 
-Records and macros are defined in the same way as module attributes:
+Tanto las grabaciones y las macros se graban de la misma forma que se graban los atributos de los m\'odulos: 
 
 \begin{erlang}
 -record(Record,Fields).
 
 -define(Macro,Replacement).
 \end{erlang}
-
-Records and macro definitions are also allowed between functions, as
-long as the definition comes before its first use. (About records see
-section \ref{datatypes:record} and about macros see chapter \ref{macros}.)
+Las grabaciones y los macros tambi\'en se pueden realizar entre funciones, para ello el \'unico requisito es que la definici\'on vaya antes que su primer uso. (Sobre los registros consulta la secci\'on \ref{datatypes:record} and about macros see chapter \ref{macros}.)
 
 \subsection{File inclusion}
 
