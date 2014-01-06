@@ -31,69 +31,57 @@ Un \textbf{atributo de un m\'odulo} define una propiedad concreta de un m\'odulo
 \texttt{Tag} tiene que se un \'atomo, mientras que \texttt{valor} tiene que ser un t\'ermino literal (consulta el cap\'itulo \ref{datatypes}). Cualquier atributo de un m\'odulo puede ser especificado. Los atributos se guardan en el c\'odigo compilado y puede ser recuperado llamando a la funci\'on \texttt{Module:module\_info(attributes).}
 
 \subsection{Atributos de m\'odulo predefinidos}
-Los atributos de m\'odulo predefinodos tienen que ponerse antes de cualquier declaraci\'on de funci\'on.
+Los atributos de m\'odulo predefinidos tienen que ponerse antes de cualquier declaraci\'on de funci\'on.
 
 \begin{itemize}
-
 	\item \begin{erlangim}
 	-module(Module).
 	\end{erlangim}
-	This attribute is mandatory and must be specified first. It
-        defines the name of the module. The name Module, an atom (see section \ref{datatypes:atom}),
-        should be the same as the filename without the `\texttt{.erl}' extension.
+	Este atributo es obligatorio y debe ser especificado primero. Define el nombre del m\'odulo. El nombre del m\'odulo, un \'atomo (consultar secci\'on \ref{datatypes:atom}), debe ser el mismo que el nombre del fichero sin la extensi\'on `\texttt{.erl}'.
 
 	\item \begin{erlangim}
 	-export([Func1/Arity1, ..., FuncN/ArityN]).
 	\end{erlangim}
-	This attribute specifies which functions in the module that
-        can be called from outside the module. Each function name
-        \texttt{FuncX} is an atom and \texttt{ArityX} an integer.
+	Este atributo especifica qu\'e en el m\'odulo pueden ser llamadas desde fuera del m\'odulo. Cada nombre de funci\'on \texttt{FuncX} es un \'atomo y \texttt{ArityX} es un valor entero.
 
 	\item \begin{erlangim}
 	-import(Module,[Func1/Arity1, ..., FuncN/ArityN]).
 	\end{erlangim}
-	This attribute indicates a \texttt{Module} from which a list of functions
-        are imported.  For example:
-
-	\begin{erlangim}
+    Este atributo indica un \texttt{Module} del cual se importar\'a una lista de funciones, por ejemplo:  
+    \begin{erlangim}
 	-import(demo, [double/1]).
 	\end{erlangim}
-	This means that it is possible to write \texttt{double(10)} instead of
-        the longer \texttt{demo:double(10)} which can be impractical if the
-        function is used frequently.
+    Esto signfica que es posible escribir \texttt{double(10)} en lugar de la versi\'on m\'as larga \texttt{demo:double(10)} la cual puede resultar poco pr\'actica si la funci\'on se utiliza de manera frecuente.
 
 	\item \begin{erlangim}
 	-compile(Options).
 	\end{erlangim}
-	Compiler options.
+	Opciones del compilador.
 
 	\item \begin{erlangim}
 	-vsn(Vsn).
 	\end{erlangim}
-	Module version. If this attribute is not specified, the
-        version defaults to the checksum of the module.
+    La versi\'on del m\'odulo. Si este atributo no se especifica, la versi\'on ser\'a por defecto el valor del \texttt{checksum} del m\'odulo.
 
 	\item \begin{erlangim}
 	-behaviour(Behaviour).
 	\end{erlangim}
-	This attribute either specifies a user defined behaviour or
-        one of the OTP standard behaviours \texttt{gen\_server},
-        \texttt{gen\_fsm}, \texttt{gen\_event} or
-        \texttt{supervisor}. The spelling ``behavior'' is also accepted.
+    Este atributo especifica puede especificar dos cosas: el comportamiento definido por un usuario o un comportamiento est\'andar disponible en OTP \texttt{gen\_server}, \texttt{gen\_fsm}, \texttt{gen\_event} or
+        \texttt{supervisor}. Escribir la palabra ``behavior'' es una opci\'on que tambi\'en es aceptada.
 
 \end{itemize}
 
 
-\subsection{Macros y definici\'on de grabaciones}
+\subsection{Macros y definici\'on de estructuras de datos}
 
-Tanto las grabaciones y las macros se graban de la misma forma que se graban los atributos de los m\'odulos: 
+Tanto las grabaciones y las estructuras de datos se graban de la misma forma que se graban los atributos de los m\'odulos: 
 
 \begin{erlang}
 -record(Record,Fields).
 
 -define(Macro,Replacement).
 \end{erlang}
-Las grabaciones y los macros tambi\'en se pueden realizar entre funciones, para ello el \'unico requisito es que la definici\'on vaya antes que su primer uso. (Sobre los registros consulta la secci\'on \ref{datatypes:record} and about macros see chapter \ref{macros}.)
+Las grabaciones y los estructuras de datos tambi\'en se pueden realizar entre funciones, para ello el \'unico requisito es que la definici\'on vaya antes que su primer uso. (Sobre los registros consulta la secci\'on \ref{datatypes:record} and about estructuras de datos see chapter \ref{estructuras de datos}.)
 
 \subsection{File inclusion}
 
