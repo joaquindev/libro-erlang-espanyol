@@ -81,11 +81,11 @@ Tanto las grabaciones y las estructuras de datos se graban de la misma forma que
 
 -define(Macro,Replacement).
 \end{erlang}
-Las grabaciones y los estructuras de datos tambi\'en se pueden realizar entre funciones, para ello el \'unico requisito es que la definici\'on vaya antes que su primer uso. (Sobre los registros consulta la secci\'on \ref{datatypes:record} and about estructuras de datos see chapter \ref{estructuras de datos}.)
+Las grabaciones y los estructuras de datos tambi\'en se pueden realizar entre funciones, para ello el \'unico requisito es que la definici\'on vaya antes que su primer uso. (Sobre los registros consulta la secci\'on \ref{datatypes:record} y sobre las estructuras de datos consulta el cap\'itulo \ref{estructuras de datos}.)
 
-\subsection{File inclusion}
+\subsection{Incluyendo un fichero}
 
-File inclusion is specified in the same way as module attributes:
+La inclusi\'on de un fichero se especifica de la misma manera que los atributos del m\'odulo: 
 
 \begin{erlang}
 -include(File).
@@ -93,10 +93,9 @@ File inclusion is specified in the same way as module attributes:
 -include_lib(File).
 \end{erlang}
 
-\texttt{File} is a string that represents a file name. Include files
-are typically used for record and macro definitions that are shared by
-several modules. By convention, the extension \texttt{.hrl} is used
-for include files.
+\texttt{File} es una cadena de texto que representa el nombre de un fichero. Los ficheros \texttt{Include
+son utilizados normalmente por las definiciones de los registros y los macros compartidos por diferentes 
+m\'odulos. Por convenci\'on, la extensi\'on \texttt{.hrl} se utilizada para incluir ficheros.
 
 \begin{erlang}
 -include("my_records.hrl").
@@ -104,21 +103,21 @@ for include files.
 -include("/home/user/proj/my_records.hrl").
 \end{erlang}
 
-If \texttt{File} starts with a path component \texttt{\$Var}, then the value of
-the environment variable \texttt{Var} (returned by
-\texttt{os:getenv(Var)}) is substituted for \texttt{\$Var}.
+Si el \texttt{File} empieza por una ruta \texttt{\$Var}, entonces el valor de la variable de entorno \texttt{Var} (devuelta 
+por \texttt{os:getenv(Var)}) se sustituye por \texttt{\$Var}.
 
 \begin{erlang}
 -include("$PROJ_ROOT/my_records.hrl").
 \end{erlang}
 %%$ texmaker parser bug
 
-\texttt{include\_lib} is similar to \texttt{include}, but the
-first path component is assumed to be the name of an application.
+\texttt{include\_lib} es similar a \texttt{include}, pero el primer elemento de la ruta 
+ se asume que es el nombre de la aplicaci\'on.
 
 \begin{erlang}
 -include_lib("kernel/include/file.hrl").
 \end{erlang}
+El c\'odigo del servidor utiliza 
 
 The code server uses \texttt{code:lib\_dir(kernel)} to find the
 directory of the current (latest) version of \texttt{kernel}, and then
