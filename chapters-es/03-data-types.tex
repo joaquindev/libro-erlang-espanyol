@@ -32,8 +32,7 @@ En Erlang no existe el tipo \textbf{booleano}. Los \'atomos \texttt{true} y \tex
 \label{datatypes:integer}
 Adem\'as de la forma normal de escribir \textbf{integers} Erlang
 ofrece otras notaciones. \texttt{\$Char} es el valor num\'erico del car\'acter
-`\texttt{Char}' (que puede ser una secuencia de escape) y \texttt{Base\#Value} es un entero en base \texttt{Base}, el cual 
-debe ser un valor entero dentro del rango $2..36$.
+`\texttt{Char}' (que puede ser una secuencia de escape) y \texttt{Base\#Value} es un entero en base \texttt{Base}, el cual debe ser un valor entero dentro del rango $2..36$.
 
 \texttt{42} \resultingin \texttt{42} \\
 \$A  \resultingin \texttt{65} \\
@@ -42,31 +41,28 @@ debe ser un valor entero dentro del rango $2..36$.
 \texttt{16\#1f} \resultingin \texttt{31}
 
 
-\subsection{Valores Float}
+\subsection{Valores en punto flotante}
 \label{datatypes:float}
-A \textbf{float} is a real number written \texttt{Num}[\texttt{eExp}]
-where \texttt{Num} is a decimal number between 0.01 and 10000 and
-\texttt{Exp} (optional) is a signed integer specifying the power-of-10 exponent.  For example:
+Un valor en punto flotante es un valor real escrito \texttt{Num}[\texttt{eExp}]
+donde \texttt{Num} es un n\'umero decimal entre 0.01 y 10000, y \texttt{Exp} (opcional) es un valor entero con signo especificando el exponente. Por ejemplo:
 
 \texttt{2.3e-3} \resultingin \texttt{2.30000e-3}\hfill
-(corresponding to 2.3*10\textsuperscript{-3})
+(corresponde a 2.3*10\textsuperscript{-3})
 
 
-\subsection{References}
+\subsection{Referencias}
 \label{datatypes:reference}
-A \textbf{reference} is a term which is unique in an Erlang runtime
-system, created by the built-in function \texttt{make\_ref/0}.  (For more information on built-in functions, or \textit{BIF}s, see section \ref{functions:bifs}.)
+Una \textbf{reference} es un t\'ermino \'unico dentro de un sistema en tiempo de ejecuci\'on Erlang creado mediante la funci\'on propia \texttt{make\_ref/0}. (Para m\'as informaci\'on sobre \'esta funci\'on o sobre \textit{BIF}s, consulta la secci\'on \ref{functions:bifs}.)
 
 
-\subsection{Ports}
+\subsection{Puertos}
 \label{datatypes:port}
-A \textbf{port identifier} identifies a port (see chapter \ref{ports}).
+Un \textbf{identificador de un puerto} identifica un puerto (consultar el cap\'itulo  \ref{ports}).
 
 
-\subsection{Pids}
+\subsection{Pids, identificadores de proceso}
 \label{datatypes:pid}
-A \textbf{process identifier}, \textit{pid}, identifies a process (see
-chapter \ref{processes}).
+Un \textbf{identificador de proceso}, \textit{pid}, identifica un proceso de forma \'unica (consulta el cap\'itulo \ref{processes}).
 
 
 \subsection{Funs}
