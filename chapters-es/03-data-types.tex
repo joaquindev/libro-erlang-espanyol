@@ -27,7 +27,6 @@ En Erlang no existe el tipo \textbf{booleano}. Los \'atomos \texttt{true} y \tex
 \texttt{2 =< 3} \resultingin \texttt{true} \\
 \texttt{true or false} \resultingin \texttt{true}
 
-
 \subsection{Enteros}
 \label{datatypes:integer}
 Adem\'as de la forma normal de escribir \textbf{integers} Erlang
@@ -67,26 +66,22 @@ Un \textbf{identificador de proceso}, \textit{pid}, identifica un proceso de for
 
 \subsection{Funs}
 \label{datatypes:fun}
-A \textit{fun} identifies a \textbf{functional object} (see section
-\ref{functions:funs}).
+Una \textit{fun} sirve para identificar a un \textbf{objeto funcional} (consultar secci\'on \ref{functions:funs}).
 
+\section{Tipos de datos compuestos}
 
-\section{Compound data types}
-
-\subsection{Tuples}
+\subsection{Tuplas}
 \label{datatypes:tuple}
-A \textbf{tuple} is a compound data type that holds a \textbf{fixed
-number of terms} enclosed within curly braces.
+Una \textbf{tupla} es un tipo de dato compuesto que contiene un \textbf{n\'umero fijo de t\'erminos} encerrados entre unos corchetes.
 
 \texttt{\{Term1,...,TermN\}}
 
-Each \texttt{TermX} in the tuple is called an \textbf{element}. The
-number of elements is called the \textbf{size} of the tuple.
+Cada \texttt{TermX} en la tupla se llama \textbf{elemento}. El n\'umero de elementos se concoe como el \textbf{tamanyo}de la tupla.
 
 \begin{center}
 \begin{tabular}{|>{\raggedright}p{134pt}|>{\raggedright}p{186pt}|}
 \hline
-\multicolumn{2}{|p{321pt}|}{BIFs to manipulate tuples}\tabularnewline
+\multicolumn{2}{|p{321pt}|}{BIFs para manipular funciones}\tabularnewline
 \hline
 \texttt{size(Tuple)} & Returns the size of \texttt{Tuple}\tabularnewline
 \hline
@@ -106,10 +101,9 @@ number of elements is called the \textbf{size} of the tuple.
 \texttt{size(\{\})} \resultingin \texttt{0} \\
 
 
-\subsection{Records}
+\subsection{Registros}
 \label{datatypes:record}
-A \textbf{record} is a \textit{named tuple} with named elements
-called \textbf{fields}.  A record type is defined as a module attribute, for example:
+Un \textbf{registro} es \textit{una tupla con nombre} con elementos llamados \textbf{campos}. El tipo de un registro se define como un atributo del m\'odulo. Por ejemplo:
 
 \begin{erlang}
 -record(Rec, {Field1 [= Value1],
@@ -117,12 +111,13 @@ called \textbf{fields}.  A record type is defined as a module attribute, for exa
               FieldN [= ValueN]}).
 \end{erlang}
 
-\texttt{Rec} and \texttt{Fields} are atoms and each \texttt{FieldX}
-can be given an optional default \texttt{ValueX}. This definition may
-be placed amongst the functions of a module, but only before it is used.  If a record type is
-used by several modules it is advisable to put it in a separate file for inclusion.
+\texttt{Rec} and \texttt{Fields} son \'atomos y a cada \texttt{FieldX}
+se le puede dar un valor opcional por defecto \texttt{ValueX}. Esta definici\'on puede ponerse
+entre las funciones de un m\'odulo, pero s\'olamente antes de que sea utilizada. Si un objeto de tipo 
+registro es utilizado por varios m\'odulos, se recomienda ponerlo en un fichero diferente y que se proceda
+a su inclusi\'on.
 
-A new record of type \texttt{Rec} is created using an expression like this:
+Para crear un nuevo registro de tipo \texttt{Rec} utilizaremos una expresi\'on as\'i:
 
 \begin{erlang}
 #Rec{Field1=Expr1, ..., FieldK=ExprK [, _=ExprL]}
