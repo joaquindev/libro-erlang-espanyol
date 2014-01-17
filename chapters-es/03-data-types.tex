@@ -122,14 +122,13 @@ Para crear un nuevo registro de tipo \texttt{Rec} utilizaremos una expresi\'on a
 \begin{erlang}
 #Rec{Field1=Expr1, ..., FieldK=ExprK [, _=ExprL]}
 \end{erlang}
+Los campos no tienen por qué estar en el mismo orden en el que están en la definición 
+del registro. Los campos que se omitan van a tener el valor por defecto. Si se utiliza
+la cláusula final se utiliza, los campos que se han omitido van a tener el valor \texttt{ExprL}.
 
-The fields need not be in the same order as in the record
-definition. Fields omitted will get their respective default
-values. If the final clause is used, omitted fields will get the value
-\texttt{ExprL}. Fields without default values and that are omitted
-will have an undefined value.
+Los campos que no tienen valor y que además son omitidos tendrán el valor *undefined*. 
 
-The value of a field is retrieved using the expression
+Para recuperar el valor de un registro utilizaremos la expresión: 
 ``\texttt{Variable\#Rec.Field}''.
 
 \begin{erlang}
@@ -140,22 +139,22 @@ The value of a field is retrieved using the expression
 new(Name, Age) -> #person{name=Name, age=Age}.
 \end{erlang}
 
-The function \texttt{employee:new/2} can be used in another module
-which must also include the same record definition of \texttt{person}.
+La función \texttt{employee:new/2} puede ser utilizada desde otro módulo, la cual deberá
+de incluir la misma definición del registro de \texttt{person}.
 
 \texttt{\{P = employee:new(ernie,44)\}} \resultingin \texttt{\{person, ernie, 44,
 erixon\}} \\
 \texttt{P\#person.age} \resultingin \texttt{44} \\
 \texttt{P\#person.employed} \resultingin \texttt{erixon}
 
-When working with records in the Erlang shell, the functions \texttt{rd(RecordName, RecordDefinition)} and \texttt{rr(Module)} can be used to
-define and load record definitions.  Refer to the \textit{Erlang Reference Manual} for more information.
+Al trabajar con registros desde el *shell* de Erlang, podremos utilizar las funciones \texttt{rd(RecordName, RecordDefinition)} y \texttt{rr(Module)}
+para definir las definiciones de los registros. Para más información véase el \textit{Manual de Referencia de Erlang}.
 
 
-\subsection{Lists}
+\subsection{Listas}
 \label{datatypes:list}
-A \textbf{list} is a compound data type that holds a \textit{variable}
-number of \textbf{terms} enclosed within square brackets.
+Una \textbf{lista} es un tipo de datos compuesto que va a tener un número \textit{variable}
+de \textbf{términos} encerrados dentro de unos corchetes.
 
 \texttt{[Term1,...,TermN]}
 
