@@ -158,12 +158,7 @@ de \textbf{términos} encerrados dentro de unos corchetes.
 
 \texttt{[Term1,...,TermN]}
 
-Each term \texttt{TermX} in the list is called an
-\textbf{element}.  The \textbf{length} of a list refers to the number of elements.  Common in functional programming,
-the first element is called the \textbf{head} of the list
-and the remainder (from the 2\textsuperscript{nd} element onwards) is called
-the \textbf{tail} of the list.  Note that individual elements within a list do not have to have the same type, although it is common (and perhaps good)
-practice to do so --- where mixed types are involved, \textbf{records} are more commonly used.
+Cada t\'ermino \texttt{TermX} en la lista se llama \textbf{elemento}. La \textbf{longitud} de una lista hace referencia al n\'umero de elementos. Com\'unmente en programaci\'on funcional, al primer elemento se le conoce como la cabeza o \textbf{head} de la lista y el resto de la lista (desde la 2\textsuperscript{nd} elemento en adelante) se le conoce como la cola \textbf{tail} de la lista. Date cuenta que los elementos individuales dentro de una lista no tienen que ser obligatoriamente del mismo tipo, aunque lo m\'as com\'un es que s\'i que lo sean. Aunque es una buena pr\'actica y recomendable que se mantengan en la medida de lo posible del mismo tiepo ya que en el caso de mezclar los tipos, es m\'as com\'un utilizar registros \textbf{records}.
 
 \begin{center}
 \begin{tabular}{|>{\raggedright}p{90pt}|>{\raggedright}p{230pt}|}
@@ -179,14 +174,14 @@ practice to do so --- where mixed types are involved, \textbf{records} are more 
 \end{tabular}
 \end{center}
 
-The vertical bar operator (\textbar{}) separates the leading elements of a list (one or more) from the remainder.  For example:
+El operador barra vertical (\textbar{}) separa a los elementos que est\'an en la cabeza del resto de elementos. Por ejemplo: 
 
 \texttt{[H | T]  = [1, 2, 3, 4, 5]} \resultingin \texttt{H=1} and \texttt{T=[2, 3, 4, 5]} \\
 \texttt{[X, Y | Z] = [a, b, c, d, e]} \resultingin \texttt{X=a}, \texttt{Y=b} and \texttt{Z=[c, d, e]}
 
-Implicitly a list will end with an empty list, i.e.~\texttt{[a, b]} is
-the same as \texttt{[a, b | []]}.  A list looking like \texttt{[a, b | c]}
-is \textbf{badly formed} and should be avoided (because the atom '\texttt{c}' is \textit{not} a list).
+Impl\'icitamente una lista va a terminar siempre con una lista vac\'ia, p. e.~\texttt{[a, b]} es lo mismo
+que \texttt{[a, b | []]}.  Y tambi\'en, una lista \texttt{[a, b | c]}
+es y se considera una lista \textbf{mal formada} y su uso deber\'ia ser evitado (ya que el \'atomo '\texttt{c}' \textit{no} es una lista).
 Lists lend themselves naturally to recursive functional programming.  For example, the following
 function `\texttt{sum}' computes the sum of a list, and `\texttt{double}' multiplies each element in a list by 2, constructing and returning a new list
 as it goes.
