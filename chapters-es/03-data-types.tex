@@ -182,9 +182,7 @@ El operador barra vertical (\textbar{}) separa a los elementos que est\'an en la
 Impl\'icitamente una lista va a terminar siempre con una lista vac\'ia, p. e.~\texttt{[a, b]} es lo mismo
 que \texttt{[a, b | []]}.  Y tambi\'en, una lista \texttt{[a, b | c]}
 es y se considera una lista \textbf{mal formada} y su uso deber\'ia ser evitado (ya que el \'atomo '\texttt{c}' \textit{no} es una lista).
-Lists lend themselves naturally to recursive functional programming.  For example, the following
-function `\texttt{sum}' computes the sum of a list, and `\texttt{double}' multiplies each element in a list by 2, constructing and returning a new list
-as it goes.
+Las listas se prestan por naturaleza a la programación funcional recursiva. Por ejemplo la siguiente función `\texttt{sum}' calcula la suma de una lista, y `\texttt{double}' multiplica cada elemento de la lista por 2, construyendo y devolviendo una nueva lista a medida que va recorriendo la lista. 
 
 \begin{erlang}
 sum([]) -> 0;
@@ -194,20 +192,14 @@ double([]) -> [];
 double([H | T]) -> [H*2 | double(T)].
 \end{erlang}
 
-The above definitions introduce \textit{pattern matching}, described in chapter \ref{patterns}.  Patterns of this form are common in recursive programming,
-explicitly providing a ``base case'' (for the empty list in these examples).
+Las definiciones de arriba introducen el uso del \textit{pattern matching} (reconocimiento de patrones), descrito en el capítulo \ref{patterns}. Los patrones de este estilo son típicos en programación recursiva de forma que proporcionan explícitamente un caso base (``base case'') (para una lista vacía en este caso). 
 
-For working with lists, the operator \texttt{++} joins two lists together (appends the second argument to the first) and
-returns the resulting list.  The operator \texttt{--} produces a list that
-is a copy of its first argument, except that for each element in
-the second argument, the first occurrence of this element (if any) in the resulting list is
-removed.
+Para trabajar con listas, el operador \texttt{++} une dos listas juntas (de forma que incluye los elementos pasados como segundo argumento al primero) y además devuelve la lista resultante. El operador \texttt{--} produce una lista que es una copia de su primer argumento, excepto que para cada elemento en el segundo argumento, la primera ocurrencia de este elemento (si es que lo hay), será eliminada. 
 
 \texttt{[1,2,3] ++ [4,5]} \resultingin \texttt{[1,2,3,4,5]}
 \texttt{[1,2,3,2,1,2] -- [2,1,2]} \resultingin \texttt{[3,1,2]}
 
-A collection of list processing functions can be found in the
-\texttt{STDLIB} module \texttt{lists}.
+Una colección de funciones para procesar listas se puede encontrar en \texttt{STDLIB} en el módulo \texttt{lists} (listas). 
 
 
 \subsection{Strings}
