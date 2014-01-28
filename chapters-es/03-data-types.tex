@@ -202,40 +202,34 @@ Para trabajar con listas, el operador \texttt{++} une dos listas juntas (de form
 Una colección de funciones para procesar listas se puede encontrar en \texttt{STDLIB} en el módulo \texttt{lists} (listas). 
 
 
-\subsection{Strings}
+\subsection{Cadenas de caracteres}
 \label{datatypes:string}
-\textbf{Strings} are character strings enclosed within double quotes
-but are, in fact, stored as lists of characters.
+Las \textbf{cadenas de caracteres} son caracteres delimitados por comillas dobles que realmente se guardan como una lista de caracteres. 
 
-\texttt{"abcdefghi"} is the same as \texttt{[97,98,99,100,101,102,103,104,105]}
+\texttt{"abcdefghi"} es lo mismo que \texttt{[97,98,99,100,101,102,103,104,105]}
 
-\texttt{""} is the same as \texttt{[]}
+\texttt{""} es lo mismo que \texttt{[]}
 
-Two adjacent strings will be concatenated into one at compile-time and
-do not incur any runtime overhead.
+Dos cadenas adyacentes se concatenarán en una en tiempo de compilación y por tanto no aumentarán ni afectarán el tiempo de ejecución. 
 
 \texttt{"string" "42"} \resultingin \texttt{"string42"}
 
-
-\subsection{Binaries}
+\subsection{Binarios}
 \label{datatypes:binary}
-A binary is a chunk of untyped memory by default a sequence of 8-bit
-bytes.
+Un dato binario es un trozo de memoria (por defecto son bytes de 8-bits) y que no tiene ningún tipo asingado. 
 
 \texttt{<}\texttt{<Elem1,...,ElemN>}\texttt{>}
 
-Each \texttt{ElemX} is specified as \texttt{Value}[\texttt{:Size}][\texttt{/TypeSpecifierList}].
+Cada \texttt{ElemX} se especifica como \texttt{Value (valor)}[\texttt{:Size (dimensión)}][\texttt{/TypeSpecifierList}].
 
 \begin{center}
 \begin{tabular}{|>{\raggedright}p{73pt}|>{\raggedright}p{81pt}|>{\raggedright}p{147pt}|}
 \hline
-\multicolumn{3}{|p{297pt}|}{Element specification}\tabularnewline
+\multicolumn{3}{|p{297pt}|}{Especificación del elemento}\tabularnewline
 \hline
 \texttt{Value} & \texttt{Size} & \texttt{TypeSpecifierList}\tabularnewline
 \hline
-Should evaluate to an integer, float or binary & Should
-evaluate to an integer & A sequence of optional type specifiers, in any order,
-separated by hyphens (-)\tabularnewline
+Debe ser evaluado a un entero, coma flotante o binario & Debe evaluarse como entero & Una secuencia opcional de especificadores de tipo, en cualquier orden, separada por guiones (-)\tabularnewline
 \hline
 \end{tabular}
 \end{center}
@@ -261,13 +255,9 @@ Default is 1 for integer and float, and 8 for binary\tabularnewline
 \end{tabular}
 \end{center}
 
-The value of \texttt{Size} multiplied by the unit gives the number of
-bits for the segment. Each segment can consist of zero or more bits
-but the total number of bits must be a multiple of 8, or a
-\texttt{badarg} run-time error will occur. Also, a segment of type
-binary must have a size evenly divisible by 8.
+El valor de \texttt{Size} multiplicado por las unidades da el número de bits para el segmento. Cada segmento puede consistir en cero o más bits pero el número total de bits debe ser un múltiplo de 8, o se producirá un error en tiempo de ejecución del tipo \texttt{badarg}. Además, un segmento de tipo binario debe tener una dimensión que sea divisible por ocho (uniformemente). 
 
-Binaries cannot be nested.
+Los binarios no pueden anidarse.
 
 \begin{erlang}
 <<1, 17, 42>>       % <<1, 17, 42>>
